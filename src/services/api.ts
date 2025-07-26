@@ -1,17 +1,16 @@
-import getAxiosPublic from "@/lib/axiosPublic";
 
-const getProductData = async (lang: 'en' | 'bn' = 'en') => {
-    const axiosPublic = getAxiosPublic();
+const getProductData = async (slug: string, lang: 'en' | 'bn' = 'en') => {
 
-    const res = await axiosPublic.get('/products/ielts-course', {
-        params: { lang },
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products/${slug}?lang=${lang}`, {
         headers: {
             'X-TENMS-SOURCE-PLATFORM': 'web',
-            'Accept': 'application/json'
+            Accept: 'application/json'
         }
     });
 
-    return res.data;
+    if(!res.ok) throw new Error('failed to fetch product');
+
+    return res.json();
 };
 
 export default getProductData;
