@@ -1,3 +1,4 @@
+import About from "@/components/About/About";
 import ExclusiveFeatures from "@/components/ExclusiveFeatures/ExclusiveFeatures";
 import Features from "@/components/Features/Features";
 import Instructors from "@/components/Instructors/Instructors";
@@ -22,6 +23,7 @@ const Product = async ({ params, searchParams }: ProductPageProps) => {
     const features = data.sections.find(section => section.type === 'features');
     const pointers = data.sections.find(section => section.type === 'pointers');
     const exclusiveFeatures = data.sections.find(section => section.type === 'feature_explanations');
+    const about = data.sections.find(section => section.type === 'about');
     // console.log(instructors)
     // console.log(data)
 
@@ -82,6 +84,7 @@ const Product = async ({ params, searchParams }: ProductPageProps) => {
                     {features && <Features data={features} />}
                     {pointers && <Pointers data={pointers} />}
                     {exclusiveFeatures && <ExclusiveFeatures data={exclusiveFeatures} />}
+                    {about && <About data={about} />}
                 </div>
             </div>
         </>

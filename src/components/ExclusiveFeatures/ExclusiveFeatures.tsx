@@ -9,7 +9,7 @@ interface ExclusivePropTypes {
 const ExclusiveFeatures = ({ data }: ExclusivePropTypes) => {
     return (
         <section>
-            <h2 className='text-2xl font-bold mb-4'>{data.name || 'Course exclusive features'}</h2>
+            <h2 className='text-2xl font-bold mb-4'>{data.name}</h2>
             <div className='border rounded-md px-6'>
                 {data.values?.map((feature, idx) => (
                     <div key={idx} className={`flex justify-between gap-3 py-6 ${idx === 0 ? 'border-b' : ''}`}>

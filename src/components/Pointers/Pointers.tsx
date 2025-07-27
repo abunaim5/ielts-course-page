@@ -5,10 +5,10 @@ interface PointersPropTypes {
     data: SectionType
 }
 
-const Pointers = ({data}: PointersPropTypes) => {
+const Pointers = ({ data }: PointersPropTypes) => {
     return (
         <section>
-            <h2 className='text-2xl font-bold mb-4'>{data.name || 'Course pointers'}</h2>
+            <h2 className='text-2xl font-bold mb-4'>{data.name}</h2>
             <div className='border rounded-md p-6 grid grid-cols-2 gap-8'>
                 {data.values?.map((pointer, idx) => (
                     <div key={idx} className='flex gap-3'>
