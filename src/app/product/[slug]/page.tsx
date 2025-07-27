@@ -1,3 +1,4 @@
+import Features from "@/components/Features/Features";
 import Instructors from "@/components/Instructors/Instructors";
 import Navbar from "@/components/Navbar/Navbar";
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,8 @@ const Product = async ({ params, searchParams }: ProductPageProps) => {
     const { slug } = await Promise.resolve(params);
     const { data }: ProductResponseType = await getProductData(slug, lang);
     const instructors = data.sections.find(section => section.type === 'instructors');
-    console.log(instructors)
+    const features = data.sections.find(section => section.type === 'features');
+    // console.log(instructors)
     // console.log(data)
 
     return (
@@ -25,8 +27,8 @@ const Product = async ({ params, searchParams }: ProductPageProps) => {
             <section className='h-72 bg-black py-10'>
                 <div className='w-4/6 h-full mx-auto relative content-center'>
                     <div className=''>
-                        <h1 className='text-3xl font-bold text-white'>{data.title}</h1>
-                        <div className='mt-2 max-w-7/12 text-gray-300' dangerouslySetInnerHTML={{ __html: data.description }} />
+                        <h1 className='text-4xl font-bold text-white'>{data.title}</h1>
+                        <div className='mt-2 max-w-5/8 text-gray-300' dangerouslySetInnerHTML={{ __html: data.description }} />
                     </div>
                     <div className='w-[400px] border p-1 bg-white absolute right-0 top-0'>
                         {
@@ -71,8 +73,9 @@ const Product = async ({ params, searchParams }: ProductPageProps) => {
                 </div>
             </section>
             <div className='w-4/6 mx-auto py-10'>
-                <div className='max-w-7/12'>
+                <div className='max-w-5/8 space-y-8'>
                     {instructors && <Instructors data={instructors} />}
+                    {features && <Features data={features} />}
                 </div>
             </div>
         </>

@@ -8,7 +8,7 @@ interface InstructorsPropTypes {
 const Instructors = ({ data }: InstructorsPropTypes) => {
     return (
         <section>
-            <h2 className='text-3xl font-bold mb-6'>{data.name || 'Course Instructors'}</h2>
+            <h2 className='text-2xl font-bold mb-4'>{data.name || 'Course Instructors'}</h2>
             <div className=''>
                 {data.values?.map((instructor, idx) => (
                     <div key={idx} className='p-6 border flex items-center gap-4 rounded-md'>

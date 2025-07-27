@@ -36,6 +36,9 @@ export interface SectionType {
         short_description: string;
         slug: string;
         text: string;
+        icon: string;
+        title: string;
+        subtitle: string;
     }>;
 }
 
