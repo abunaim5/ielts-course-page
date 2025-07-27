@@ -30,6 +30,11 @@ export interface SectionType {
     order_idx: number;
     values: Array<{
         id: string;
+        name: string;
+        image: string;
+        description: string;
+        short_description: string;
+        slug: string;
         text: string;
     }>;
 }

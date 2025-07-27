@@ -1,3 +1,4 @@
+import Instructors from "@/components/Instructors/Instructors";
 import Navbar from "@/components/Navbar/Navbar";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -14,12 +15,14 @@ const Product = async ({ params, searchParams }: ProductPageProps) => {
     const { lang } = await Promise.resolve(searchParams);
     const { slug } = await Promise.resolve(params);
     const { data }: ProductResponseType = await getProductData(slug, lang);
+    const instructors = data.sections.find(section => section.type === 'instructors');
+    console.log(instructors)
     // console.log(data)
 
     return (
         <>
             <Navbar />
-            <div className='h-72 bg-black py-10'>
+            <section className='h-72 bg-black py-10'>
                 <div className='w-4/6 h-full mx-auto relative content-center'>
                     <div className=''>
                         <h1 className='text-3xl font-bold text-white'>{data.title}</h1>
@@ -65,6 +68,11 @@ const Product = async ({ params, searchParams }: ProductPageProps) => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+            <div className='w-4/6 mx-auto py-10'>
+                <div className='max-w-7/12'>
+                    {instructors && <Instructors data={instructors} />}
                 </div>
             </div>
         </>
