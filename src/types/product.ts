@@ -17,6 +17,16 @@ export interface SeoType {
     title: string;
     description: string;
     keywords: string[];
+    defaultMeta: Array<{
+        content: string;
+        type: string;
+        value: string;
+    }>;
+    schema: Array<{
+        meta_name: string;
+        meta_Value: string;
+        type: string;
+    }>;
 }
 
 export interface CtaTextType {
@@ -53,7 +63,7 @@ export interface ProductDataType {
     modality: string;
     platform: string;
     checklist: ChecklistType[];
-    seo: SeoType[];
+    seo: SeoType;
     cta_text: CtaTextType;
     sections: SectionType[];
 }
