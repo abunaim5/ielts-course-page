@@ -1,6 +1,7 @@
 import Features from "@/components/Features/Features";
 import Instructors from "@/components/Instructors/Instructors";
 import Navbar from "@/components/Navbar/Navbar";
+import Pointers from "@/components/Pointers/Pointers";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import getProductData from "@/services/api";
@@ -18,6 +19,7 @@ const Product = async ({ params, searchParams }: ProductPageProps) => {
     const { data }: ProductResponseType = await getProductData(slug, lang);
     const instructors = data.sections.find(section => section.type === 'instructors');
     const features = data.sections.find(section => section.type === 'features');
+    const pointers = data.sections.find(section => section.type === 'pointers');
     // console.log(instructors)
     // console.log(data)
 
@@ -73,9 +75,10 @@ const Product = async ({ params, searchParams }: ProductPageProps) => {
                 </div>
             </section>
             <div className='w-4/6 mx-auto py-10'>
-                <div className='max-w-5/8 space-y-8'>
+                <div className='max-w-5/8 space-y-10'>
                     {instructors && <Instructors data={instructors} />}
                     {features && <Features data={features} />}
+                    {pointers && <Pointers data={pointers} />}
                 </div>
             </div>
         </>
