@@ -39,6 +39,8 @@ export interface SectionType {
         icon: string;
         title: string;
         subtitle: string;
+        file_url: string;
+        checklist: string[];
     }>;
 }
 
