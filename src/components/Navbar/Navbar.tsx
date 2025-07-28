@@ -1,7 +1,7 @@
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
 import { Button } from "../ui/button";
 
-const Navbar = ({ locale }: { locale: 'en' | 'bn' }) => {
+const Navbar = ({ locale }: { locale: string }) => {
 
     return (
         <nav className='py-3 px-4 xl:px-6 2xl:px-0'>

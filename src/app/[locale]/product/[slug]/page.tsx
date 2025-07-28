@@ -12,11 +12,11 @@ import getProductData from "@/services/api";
 import { ProductResponseType } from "@/types/product";
 
 interface ProductPageProps {
-    params: { slug: string, locale: 'en' | 'bn' };
+    params: { slug: string, locale: string };
 }
 
 const Product = async ({ params }: ProductPageProps) => {
-    const { slug, locale } = await Promise.resolve(params);
+    const { slug, locale } = params;
     const { data }: ProductResponseType = await getProductData(slug, locale);
     const instructors = data.sections.find(section => section.type === 'instructors');
     const features = data.sections.find(section => section.type === 'features');

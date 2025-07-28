@@ -2,7 +2,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 
-const LanguageToggle = ({ currentLang }: { currentLang: 'en' | 'bn' }) => {
+const LanguageToggle = ({ currentLang }: { currentLang: string }) => {
     const router = useRouter();
     const pathname = usePathname();
 

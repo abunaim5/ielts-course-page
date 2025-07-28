@@ -1,4 +1,4 @@
-const getProductData = async (slug: string, locale: 'en' | 'bn' = 'en') => {
+const getProductData = async (slug: string, locale: string) => {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products/${slug}?lang=${locale}`, {
             headers: {
