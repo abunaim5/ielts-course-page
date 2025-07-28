@@ -12,26 +12,26 @@ import { ProductResponseType } from "@/types/product";
 import Image from "next/image";
 
 interface ProductPageProps {
-    params: { slug: string };
-    searchParams: { lang?: 'en' | 'bn' };
+    params: { slug: string, locale: 'en' | 'bn' };
+    // searchParams: { lang?: 'en' | 'bn' };
 }
 
-const Product = async ({ params, searchParams }: ProductPageProps) => {
-    const { lang } = await Promise.resolve(searchParams);
-    const { slug } = await Promise.resolve(params);
-    const { data }: ProductResponseType = await getProductData(slug, lang);
+const Product = async ({ params }: ProductPageProps) => {
+    // const { lang } = await Promise.resolve(searchParams);
+    const { slug, locale } = await Promise.resolve(params);
+    const { data }: ProductResponseType = await getProductData(slug, locale);
     const instructors = data.sections.find(section => section.type === 'instructors');
     const features = data.sections.find(section => section.type === 'features');
     const pointers = data.sections.find(section => section.type === 'pointers');
     const exclusiveFeatures = data.sections.find(section => section.type === 'feature_explanations');
     const about = data.sections.find(section => section.type === 'about');
     // console.log(instructors)
-    console.log(data)
+    // console.log(data)
 
     return (
         <>
             <SeoHead seo={data.seo} />
-            <Navbar />
+            <Navbar locale={locale} />
             <main>
                 <section className='h-72 bg-black py-10'>
                     <div className='w-4/6 h-full mx-auto relative content-center'>

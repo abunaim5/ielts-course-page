@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function Home() {
-  redirect('/product/ielts-course');
+  redirect('/en/product/ielts-course');
 }

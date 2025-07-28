@@ -1,6 +1,6 @@
-const getProductData = async (slug: string, lang: 'en' | 'bn' = 'en') => {
+const getProductData = async (slug: string, locale: 'en' | 'bn' = 'en') => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products/${slug}?lang=${lang}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products/${slug}?lang=${locale}`, {
             headers: {
                 'X-TENMS-SOURCE-PLATFORM': 'web',
                 Accept: 'application/json'

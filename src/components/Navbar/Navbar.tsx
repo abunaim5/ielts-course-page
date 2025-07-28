@@ -1,6 +1,8 @@
+import LanguageToggle from "../LanguageToggle/LanguageToggle";
 import { Button } from "../ui/button";
 
-const Navbar = () => {
+const Navbar = ({ locale }: { locale: 'en' | 'bn' }) => {
+
     return (
         <nav className='py-3'>
             <div className='w-3/4 mx-auto flex items-center justify-between'>
@@ -11,7 +13,10 @@ const Navbar = () => {
                     <span>Admission</span>
                     <span>English Center</span>
                 </div>
-                <Button className='text-base font-semibold text-white bg-green-600'>Login</Button>
+                <div className='space-x-4'>
+                    <LanguageToggle currentLang={locale} />
+                    <Button className='text-base font-semibold text-white bg-green-600'>Login</Button>
+                </div>
             </div>
         </nav>
     );
