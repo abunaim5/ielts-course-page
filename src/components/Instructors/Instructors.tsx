@@ -8,10 +8,10 @@ interface InstructorsPropTypes {
 const Instructors = ({ data }: InstructorsPropTypes) => {
     return (
         <section>
-            <h2 className='text-2xl font-bold mb-4'>{data.name}</h2>
-            <div className=''>
+            <h2 className='text-xl md:text-2xl font-bold mb-4'>{data.name}</h2>
+            <>
                 {data.values?.map((instructor, idx) => (
-                    <div key={idx} className='p-6 border flex items-center gap-4 rounded-md'>
+                    <div key={idx} className='p-4 md:p-6 border flex items-center gap-4 rounded-md'>
                         {instructor.image && (
                             <Image
                                 src={instructor.image}
@@ -30,7 +30,7 @@ const Instructors = ({ data }: InstructorsPropTypes) => {
                         </div>
                     </div>
                 ))}
-            </div>
+            </>
         </section>
     );
 };

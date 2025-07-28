@@ -8,8 +8,8 @@ interface AboutPropTypes {
 const About = ({ data }: AboutPropTypes) => {
     return (
         <section>
-            <h2 className='text-2xl font-bold mb-4'>{data.name}</h2>
-            <div className='border rounded-md p-6'>
+            <h2 className='text-xl md:text-2xl font-bold mb-4'>{data.name}</h2>
+            <div className='border rounded-md p-4 md:p-6'>
                 <Accordion type='single' collapsible defaultValue='0'>
                     {
                         data.values.map((about, idx) => (<AccordionItem key={idx} value={`${idx}`}>

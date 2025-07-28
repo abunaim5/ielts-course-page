@@ -9,10 +9,10 @@ interface ExclusivePropTypes {
 const ExclusiveFeatures = ({ data }: ExclusivePropTypes) => {
     return (
         <section>
-            <h2 className='text-2xl font-bold mb-4'>{data.name}</h2>
-            <div className='border rounded-md px-6'>
+            <h2 className='text-xl md:text-2xl font-bold mb-4'>{data.name}</h2>
+            <div className='border rounded-md p-4 md:p-6'>
                 {data.values?.map((feature, idx) => (
-                    <div key={idx} className={`flex justify-between gap-3 py-6 ${idx === 0 ? 'border-b' : ''}`}>
+                    <div key={idx} className={`flex flex-col md:flex-row justify-between gap-3 py-6 ${idx === 0 ? 'border-b' : ''}`}>
                         <div className='space-y-3'>
                             <h3>{feature.title}</h3>
                             {
@@ -22,7 +22,7 @@ const ExclusiveFeatures = ({ data }: ExclusivePropTypes) => {
                                 </div>))
                             }
                         </div>
-                        <Image alt={`${feature.title} icon`} src={feature.file_url} width={100} height={100} className='w-full max-w-56' />
+                        <Image alt={`${feature.title} icon`} src={feature.file_url} width={100} height={100} className='w-full max-w-56 h-fit' />
                     </div>
                 ))}
             </div>

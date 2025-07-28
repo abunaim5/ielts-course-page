@@ -8,8 +8,8 @@ interface FeaturesPropTypes {
 const Features = ({ data }: FeaturesPropTypes) => {
     return (
         <section>
-            <h2 className='text-2xl font-bold mb-4'>{data.name}</h2>
-            <div className='bg-black rounded-md p-6 grid grid-cols-2 gap-8'>
+            <h2 className='text-xl md:text-2xl font-bold mb-4'>{data.name}</h2>
+            <div className='bg-black rounded-md p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-8'>
                 {data.values?.map((feature, idx) => (
                     <div key={idx} className='flex gap-3'>
                         <Image alt={`${feature.title} icon`} src={feature.icon} width={100} height={100} className='w-10 h-10' />

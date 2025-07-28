@@ -11,7 +11,7 @@ const ProductTrailer = ({ media }: ProductTrailerPropTypes) => {
         <Carousel className="w-full max-w-full">
             <CarouselContent>
                 {
-                    media.map((m, idx) => <CarouselItem key={idx} className='h-56 bg-black'>
+                    media.map((m, idx) => <CarouselItem key={idx} className='h-56 md:h-44 lg:h-56 bg-black'>
                         {
                             m.resource_type === 'video' ? <iframe
                                 title='YouTube video player'
@@ -19,7 +19,7 @@ const ProductTrailer = ({ media }: ProductTrailerPropTypes) => {
                                 className='h-full aspect-video'
                                 referrerPolicy='strict-origin-when-cross-origin'
                                 allowFullScreen
-                            /> : <Image alt={m.name} src={m.resource_value} height={500} width={500} className='max-h-56 w-full' />
+                            /> : <Image alt={m.name} src={m.resource_value} height={400} width={400} className='h-full w-full' />
                         }
                     </CarouselItem>)
                 }
