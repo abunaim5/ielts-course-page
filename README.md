@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IELTS Course Product Page
 
-## Getting Started
+A high-performance product page for the **IELTS Course by Munzereen Shahid**, built using **Next.js App Router**, **TypeScript**, and **TailwindCSS**, following the requirements provided by 10 Minute School.
 
-First, run the development server:
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **Data Fetching**: REST API (SSR, ISR)
+- **Deployment**: Vercel / Custom host (adjust as needed)
+
+## Features Implemented
+
+### Core Requirements
+
+- **Product Title** — rendered from API.
+- **Course Description** — rendered as HTML from the `description` field.
+- **Course Instructors** — parsed from `sections` where `type === 'instructor'`.
+- **Product Trailer** — embedded YouTube video from `media` field.
+- **Default Price** — statically set to 1000 BDT.
+- **CTA Button** — text from `cta_text`.
+
+### Localization
+
+- **URL-based Routing**: `/en/product/[slug]`, `/bn/product/[slug]`
+- **API Integration**: language passed via query param `lang=en/bn`
+- **Language Toggle**: seamless switching between English and Bangla
+
+### SSR + ISR
+
+- **SEO**: Dynamic `<meta>` tags are set using a custom `SeoHead` component based on the API's `seo` object.  
+- **SSR**: Pages are rendered on the server using dynamic `fetch` and `async` components in the App Router.
+- **ISR**: Implemented via `revalidate` in dynamic routes to statically regenerate with freshness.
+
+### Additional Implementations (Good to Have)
+
+- **Course Layout** — rendered from `sections` where `type === 'features'`.
+- **What You'll Learn** — rendered from `sections` where `type === 'pointers'`.
+- **Exclusive Feature** — rendered from `sections` where `type === 'feature_explanations'`.
+- **Course Details** — shown using `sections` where `type === 'about'`.
+- **Checklist** — displayed from `checklist` array.
+- **SEO** — dynamic `meta` tags from `seo` object in API using a custom `SeoHead` component.
+
+## How to Run Locally
 
 ```bash
+git clone https://github.com/abunaim5/ielts-course-page.git
+cd ielts-course-page
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
