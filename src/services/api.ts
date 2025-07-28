@@ -4,7 +4,9 @@ const getProductData = async (slug: string, locale: 'en' | 'bn' = 'en') => {
             headers: {
                 'X-TENMS-SOURCE-PLATFORM': 'web',
                 Accept: 'application/json'
-            }
+            },
+            // ISR: Revalidate every 60 second
+            next: { revalidate: 60 }
         });
 
         if (!res.ok) throw new Error('failed to fetch product');
